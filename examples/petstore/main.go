@@ -9,7 +9,7 @@ import (
 
 func main() {
 	spec := spec.Spec
-	yml, err := spec.MarshalJSON()
+	yml, err := spec.MarshalYAML()
 	if err != nil {
 		log.Fatal(err)
 	}
