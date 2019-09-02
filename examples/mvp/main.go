@@ -5,12 +5,11 @@ import (
 	"log"
 
 	"github.com/johnrichardrinehart/go2openapi/examples/mvp/spec"
-	"github.com/johnrichardrinehart/go2openapi/yaml"
 )
 
 func main() {
 	spec := spec.Spec
-	yml, err := yaml.Marshal(spec)
+	yml, err := spec.MarshalYAML()
 	if err != nil {
 		log.Fatal(err)
 	}

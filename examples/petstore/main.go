@@ -5,12 +5,11 @@ import (
 	"log"
 
 	"github.com/johnrichardrinehart/go2openapi/examples/petstore/spec"
-	"github.com/johnrichardrinehart/go2openapi/yaml"
 )
 
 func main() {
 	spec := spec.Spec
-	yml, err := yaml.Marshal(spec)
+	yml, err := spec.MarshalJSON()
 	if err != nil {
 		log.Fatal(err)
 	}

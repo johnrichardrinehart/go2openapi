@@ -1,6 +1,10 @@
 package go2openapi
 
-import "gopkg.in/yaml.v3"
+import (
+	"encoding/json"
+
+	"gopkg.in/yaml.v3"
+)
 
 //GO2OPENAPIVERSION is the version of this library
 const GO2OPENAPIVERSION = "0.0.1"
@@ -28,12 +32,8 @@ type Specification struct {
 	*Components `json:"components,omitempty"`
 }
 
-func (s Specification) MarshalJSON() ([]byte, error) {
-	return s.MarshalJSON()
-}
-
 func (s Specification) MarshalYAML() ([]byte, error) {
-	b, err := s.MarshalJSON()
+	b, err := json.Marshal(s)
 	if err != nil {
 		return nil, err
 	}
@@ -43,4 +43,5 @@ func (s Specification) MarshalYAML() ([]byte, error) {
 		return nil, err
 	}
 	return yaml.Marshal(y)
+	return b, err
 }
