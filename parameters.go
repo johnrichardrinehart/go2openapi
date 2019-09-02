@@ -18,6 +18,6 @@ type Parameter struct {
 
 type Parameters []Parameter
 
-func (ps *Parameters) AddParameter(parameter Parameter) {
-	*ps = append(*ps, parameter)
+func (ps *Parameters) AddParameters(parameters ...Parameter) {
+	*ps = append(*ps, parameters...)
 }

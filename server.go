@@ -16,6 +16,6 @@ type ServerVariable struct {
 
 type Servers []Server
 
-func (ss *Servers) AddServer(server Server) {
-	*ss = append(*ss, server)
+func (ss *Servers) AddServers(servers ...Server) {
+	*ss = append(*ss, servers...)
 }
