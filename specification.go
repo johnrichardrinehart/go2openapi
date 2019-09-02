@@ -25,9 +25,9 @@ func init() {
 
 //Specification Object
 type Specification struct {
-	Version     string   `json:"openapi"`
-	Info        Info     `json:"info"`
-	Servers     []Server `json:"servers,omitempty"`
+	Version     string `json:"openapi"`
+	Info        Info   `json:"info"`
+	Servers     `json:"servers,omitempty"`
 	Paths       `json:"paths"`
 	*Components `json:"components,omitempty"`
 }

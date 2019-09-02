@@ -40,10 +40,12 @@ var errorSchema go2openapi.Schema = go2openapi.Schema{
 	},
 }
 
+var schemas go2openapi.Schemas = go2openapi.Schemas{
+	"Pet":   petSchema,
+	"Pets":  petsSchema,
+	"Error": errorSchema,
+}
+
 var comps = go2openapi.Components{
-	Schemas: map[string]go2openapi.Schema{
-		"Pet":   petSchema,
-		"Pets":  petsSchema,
-		"Error": errorSchema,
-	},
+	Schemas: &schemas,
 }

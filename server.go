@@ -13,3 +13,9 @@ type ServerVariable struct {
 	Default     string   `json:"default"` //required
 	Description string   `json:"description,omitempty"`
 }
+
+type Servers []Server
+
+func (ss *Servers) AddServer(server Server) {
+	*ss = append(*ss, server)
+}

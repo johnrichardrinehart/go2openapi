@@ -2,10 +2,11 @@ package go2openapi
 
 //Path Item Object
 type PathItem struct {
-	Summary     string     `json:",omitempty"`
-	Description string     `json:",omitempty"`
+	Summary     string     `json:"summary,omitempty"`
+	Description string     `json:"description,omitempty"`
 	Get         *Operation `json:"get,omitempty"`
 	Post        *Operation `json:"post,omitempty"`
+	*Parameters `json:"parameters,omitempty"`
 }
 
 //Operation Object
@@ -15,35 +16,19 @@ type Operation struct {
 	Description  string                 `json:"description,omitempty"`
 	ExternalDocs *ExternalDocumentation `json:"externalDocs,omitempty"`
 	OperationID  string                 `json:"operationId,omitempty"`
-	Parameters   []Parameter            `json:"parameters,omitempty"`
+	*Parameters  `json:"parameters,omitempty"`
 	// RequestBody  *RequestBody           `json:"requestBody,omitempty"`
-	Responses map[string]Response `json:"responses"` //required
+	Responses `json:"responses"` //required
 	// Callbacks    map[string]Callback    `json:"callbacks,omitempty"`
 	Deprecated bool `json:"deprecated,omitempty"`
 	// Security   *SecurityRequirement `json:"security,omitempty"`
-	Servers []Server `json:"servers,omitempty"`
+	Servers `json:"servers,omitempty"`
 }
 
 //External Documentation Object
 type ExternalDocumentation struct {
 	URL         string `json:"url"` //required
 	Description string `json:"description,omitempty"`
-}
-
-//Parameter Object
-type Parameter struct {
-	Name            string                 `json:"name"` //required
-	In              string                 `json:"in"`   //required
-	Description     string                 `json:"description,omitempty"`
-	Required        *bool                  `json:"required,omitempty"`
-	Deprecated      *bool                  `json:"deprecated,omitempty"`
-	AllowEmptyValue *bool                  `json:"allowEmptyValue,omitempty"`
-	Style           string                 `json:"style,omitempty"`
-	Explode         *bool                  `json:"explode,omitempty"`
-	AllowReserved   *bool                  `json:"allowReserved,omitempty"`
-	Schema          Schema                 `json:"schema,omitempty"`
-	Example         interface{}            `json:"example,omitempty"`
-	Examples        map[string]interface{} `json:"examples,omitempty"`
 }
 
 //Response Object

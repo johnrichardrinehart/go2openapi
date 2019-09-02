@@ -2,5 +2,6 @@ package go2openapi
 
 //Components Object
 type Components struct {
-	Schemas map[string]Schema `json:"schemas,omitempty"`
+	*Schemas    `json:"schemas,omitempty"`
+	*Parameters `json:"parameters,omitempty"`
 }

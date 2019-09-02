@@ -10,3 +10,9 @@ type Schema struct {
 	Items      *Schema           `json:"items,omitempty"`
 	Ref        string            `json:"$ref,omitempty"`
 }
+
+type Schemas map[string]Schema
+
+func (s Schemas) AddSchema(name string, schema Schema) {
+	s[name] = schema
+}
