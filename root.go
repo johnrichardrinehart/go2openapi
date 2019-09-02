@@ -25,10 +25,10 @@ func init() {
 
 //Specification Object
 type Specification struct {
-	Version     string              `json:"openapi"`
-	Info        Info                `json:"info"`
-	Servers     []Server            `json:"servers,omitempty"`
-	Paths       map[string]PathItem `json:"paths"`
+	Version     string   `json:"openapi"`
+	Info        Info     `json:"info"`
+	Servers     []Server `json:"servers,omitempty"`
+	Paths       `json:"paths"`
 	*Components `json:"components,omitempty"`
 }
 
@@ -43,5 +43,4 @@ func (s Specification) MarshalYAML() ([]byte, error) {
 		return nil, err
 	}
 	return yaml.Marshal(y)
-	return b, err
 }
