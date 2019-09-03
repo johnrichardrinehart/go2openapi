@@ -14,7 +14,7 @@ var license go2openapi.License = go2openapi.License{
 	Name: "MIT",
 }
 
-var servers = []go2openapi.Server{
+var servers = go2openapi.Servers{
 	go2openapi.Server{
 		URL: "http://petstore.swagger.io/v1",
 	},
@@ -22,13 +22,13 @@ var servers = []go2openapi.Server{
 
 //Spec matches the OpenAPI Petstore example specification
 var Spec go2openapi.Specification = go2openapi.Specification{
-	Version: "3.0.0",
+	OpenAPIVersion: "3.0.0",
 	Info: go2openapi.Info{
 		Title:   "Swagger Petstore",
 		Version: "1.0.0",
 		License: &license,
 	},
-	Servers:    servers,
+	Servers:    &servers,
 	Paths:      paths,
 	Components: &comps,
 }

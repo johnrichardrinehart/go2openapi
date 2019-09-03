@@ -25,11 +25,20 @@ func init() {
 
 //Specification Object
 type Specification struct {
-	Version     string `json:"openapi"`
-	Info        Info   `json:"info"`
-	Servers     `json:"servers,omitempty"`
-	Paths       `json:"paths"`
-	*Components `json:"components,omitempty"`
+	OpenAPIVersion string         `json:"openapi"` // required
+	Info           Info           `json:"info"`    // required
+	Paths          `json:"paths"` //required
+	*Servers       `json:"servers,omitempty"`
+	*Components    `json:"components,omitempty"`
+}
+
+//MarshalJSON covers the case of the Paths variable being unset since, as a map, its 0 value is `nil` which marshals to JSON null, not an empty object as desired.
+func (s Specification) MarshalJSON() ([]byte, error) {
+	type Alias Specification
+	if s.Paths == nil {
+		s.Paths = make(map[string]PathItem)
+	}
+	return json.Marshal(Alias(s))
 }
 
 func (s Specification) MarshalYAML() ([]byte, error) {

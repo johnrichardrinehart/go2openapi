@@ -94,7 +94,7 @@ var getPetsPetID = go2openapi.Operation{
 	Parameters:  &getPetsPetIdParameters,
 }
 
-var paths = map[string]go2openapi.PathItem{
+var paths = go2openapi.Paths{
 	`/pets`: go2openapi.PathItem{
 		Get:  &getPets,
 		Post: &postPets,
