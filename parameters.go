@@ -14,6 +14,7 @@ type Parameter struct {
 	Schema          Schema                 `json:"schema,omitempty"`
 	Example         interface{}            `json:"example,omitempty"`
 	Examples        map[string]interface{} `json:"examples,omitempty"`
+	Ref             string                 `json:"$ref,omitempty"`
 }
 
 type Parameters []Parameter

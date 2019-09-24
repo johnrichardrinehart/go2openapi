@@ -8,6 +8,7 @@ type Schema struct {
 	Required   []string          `json:"required,omitempty"`
 	Properties map[string]Schema `json:"properties,omitempty"`
 	Items      *Schema           `json:"items,omitempty"`
+	Example    interface{}       `json:"example,omitempty"`
 	Ref        string            `json:"$ref,omitempty"`
 }
 
